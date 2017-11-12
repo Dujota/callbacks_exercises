@@ -40,7 +40,7 @@ function double( number, callback ) {
     }
 
     // Then we return the `doubledNumber`.
-    return newNumber;
+    return doubledNumber;
 }
 
 function printDoubleMessage( number, doubledNumber ) {
@@ -116,4 +116,3 @@ In short, `.forEach()` allows us to focus on what we want to **do** with the ite
 Wait, it gets event better! We're not limited to *just* the `.forEach()` method. There are actually a variety of array **Iteration Methods**, and they all have a few things in common:
 - Each method is called *on* an array.
 - Each method accepts one argument: a 'callback' function.
-

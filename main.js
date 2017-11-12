@@ -129,7 +129,11 @@ console.log( 'The total number of transactions is:', totalTransactions );
   HINT(S):
   - Not all transactions are 'sales'.
 */
-var numSales;
+var numSales = transactions.filter(function(transaction){
+  return transaction.type === 'sale'
+});
+
+console.log(numSales.length);
 
 /*
   Hey, welcome to the first question!
@@ -159,9 +163,11 @@ console.log( 'The total number of sales is:', numSales );
 /*
   Calculate the total number of 'purchases'.
 */
-var numPurchases;
+var numPurchases = transactions.filter(function(transaction){
+  return transaction.type === 'purchase'
+});
 
-console.log( 'The total number of purchases is:', numPurchases );
+console.log( 'The total number of purchases is:', numPurchases.length );
 
 
 // --------------------------------------------------
@@ -173,9 +179,11 @@ console.log( 'The total number of purchases is:', numPurchases );
   HINT(S):
   - Don't forget that 'purchases' can also be made in 'cash'!
 */
-var numCashSales;
+var numCashSales = numSales.filter(function (sale) {
+  return sale.paymentMethod === 'cash'
+});
 
-console.log( 'The total number of cash sales is:', numCashSales );
+console.log( 'The total number of cash sales is:', numCashSales.length );
 
 
 // --------------------------------------------------
@@ -187,9 +195,11 @@ console.log( 'The total number of cash sales is:', numCashSales );
   HINT(S):
   - Make sure to exclude any 'sales' made by 'credit'!
 */
-var numCreditPurchases;
+var numCreditPurchases = numSales.filter(function (sale) {
+  return sale.paymentMethod === 'credit'
+});
 
-console.log( 'The total number of credit purchases is:', numCreditPurchases );
+console.log( 'The total number of credit purchases is:', numCreditPurchases.length );
 
 
 // --------------------------------------------------
@@ -204,7 +214,8 @@ console.log( 'The total number of credit purchases is:', numCreditPurchases );
   - The assembled array should be made up of strings, not full `transaction` objects.
   - This array is allowed to contain duplicate values.
 */
-var uniqueVendors;
+var uniqueVendors = transactions.filter(function(transaction){
+  return transaction.vendor}).map(item => {return item.vendor})
 
 console.log( 'The unique vendors are:', uniqueVendors );
 
